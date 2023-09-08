@@ -11,29 +11,21 @@ const params = new URLSearchParams(window.location.search);
 const token = params.get('token');
 const tokenId = params.get('tokenId');
 
-//Confirm client
+//Redirect to app with token and tokenID
 if (token && tokenId) {
-    app.emailPasswordAuth
-        .confirmUser({token, tokenId})
-        .then(() => displayResult('success'))
-        .catch(err => displayResult('error', err))
+    window.location.href = 'HandFaceCollect://reset_password/?token=' + token + '&tokenId=' + tokenId;
 } else {
     displayResult('error', 'Missing token or tokenId in URL parameters')
 }
 
-//Display Message depending on result
+//Display Message
 function displayResult(result, err) {
     const message = document.getElementById("message");
-    if (result === "success") {
-        message.innerText = "Your E-mail address has been verified.\n\n You may close this page. Thank you.";
-    }
-    else if (result === "error") {
-        message.innerText = "Unable to register this user. Please try again to register. " + err;
-    }
+    message.innerText = "Unable to register this user. Please try again to register. " + err;
 }
 </script>
 
-<title>E-mail Confirmation</title>
+<title>Reset Password</title>
 <style>
     h1 {text-align: center;}
     h3 {text-align: center;}
