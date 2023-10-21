@@ -3,7 +3,7 @@
 <script src="https://unpkg.com/realm-web/dist/bundle.iife.js"></script>
 <script>
 
-const APP_ID = "handfacecollect-uwujv";
+const APP_ID = "eyerub-zqdmx";
 const app = new Realm.App({ id: APP_ID});
 
 //Grab Tokens
@@ -13,7 +13,7 @@ const tokenId = params.get('tokenId');
 
 //Redirect to app with token and tokenID
 if (token && tokenId) {
-    window.location.href = 'HandFaceCollect://reset_password/?token=' + token + '&tokenId=' + tokenId;
+    window.location.href = 'EyeRub://reset_password/?token=' + token + '&tokenId=' + tokenId;
 } else {
     displayResult('error', 'Missing token or tokenId in URL parameters')
 }
@@ -36,7 +36,7 @@ function displayResult(result, err) {
 </head>
 
 <body>
-    <h1>HandFaceCollect</h1>
+    <h1>EyeRub</h1>
     <h5 id = "message"></h5>
 </body>
 
